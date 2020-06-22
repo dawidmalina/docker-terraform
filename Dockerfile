@@ -1,4 +1,4 @@
-FROM alpine:3.11
+FROM ubuntu:20.04
 
 ENV TF_VERSION=0.12.25 \
     TF_IN_AUTOMATION=true \
@@ -7,7 +7,8 @@ ENV TF_VERSION=0.12.25 \
 
 RUN set -x \
 ### Install basic tools
-    && apk add --no-cache bash curl unzip git jq openssh-client \
+    && apt-get update \
+    && apt-get install --no-install-recommends --yes bash curl unzip git-core jq openssh-client python3-pip \
 ### Install terraform
     && curl -LO https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip \
     && unzip terraform_${TF_VERSION}_linux_amd64.zip \
@@ -20,6 +21,17 @@ RUN set -x \
     && curl -L "$(curl -s https://api.github.com/repos/terraform-linters/tflint/releases/latest | grep -o -E "https://.+?_linux_amd64.zip")" > tflint.zip \
     && unzip tflint.zip \
     && rm tflint.zip \
-    && mv tflint /usr/bin/
+    && mv tflint /usr/bin/ \
+    && pip3 install --no-cache-dir checkov \
+    && curl https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o awscliv2.zip \
+    && unzip awscliv2.zip \
+    && /aws/install -i /usr/local/aws-cli -b /usr/local/bin \
+    && rm awscliv2.zip \
+### Cleanup
+    && apt-get purge --yes unzip python3-pip \
+    && apt-get install --no-install-recommends --yes python3-minimal \
+    && apt-get clean autoclean \
+    && apt-get autoremove --yes \
+    && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 ENTRYPOINT ["terraform"]
