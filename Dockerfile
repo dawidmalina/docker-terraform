@@ -15,7 +15,7 @@ RUN set -x \
     && mv terraform /usr/bin/ \
     && rm terraform_${TF_VERSION}_linux_amd64.zip \
 ### Install terraform addons
-    && curl -L "$(curl -s https://api.github.com/repos/segmentio/terraform-docs/releases/latest | grep -o -E "https://.+?-linux-amd64")" > terraform-docs \
+    && curl -L "$(curl -s https://api.github.com/repos/terraform-docs/terraform-docs/releases/latest | grep -o -E "https://.+?-linux-amd64")" > terraform-docs \
     && chmod +x terraform-docs \
     && mv terraform-docs /usr/bin/ \
     && curl -L "$(curl -s https://api.github.com/repos/terraform-linters/tflint/releases/latest | grep -o -E "https://.+?_linux_amd64.zip")" > tflint.zip \
@@ -27,6 +27,12 @@ RUN set -x \
     && unzip awscliv2.zip \
     && /aws/install -i /usr/local/aws-cli -b /usr/local/bin \
     && rm awscliv2.zip \
+### Install terraform-module-versions
+    # && curl -L "$(curl -s https://api.github.com/repos/keilerkonzept/terraform-module-versions/releases/latest | grep -o -E "https://.+?_linux_x86_64.tar.gz")" > terraform-module-versions.tar.gz \
+    && curl -L "$(curl -s https://api.github.com/repos/dawidmalina/terraform-module-versions/releases/latest | grep -o -E "https://.+?_linux_x86_64.tar.gz")" > terraform-module-versions.tar.gz \
+    && tar xvf terraform-module-versions.tar.gz \
+    && mv terraform-module-versions /usr/bin/ \
+    && rm terraform-module-versions.tar.gz \
 ### Cleanup
     && apt-get purge --yes unzip python3-pip \
     && apt-get install --no-install-recommends --yes python3-minimal \
