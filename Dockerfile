@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-ENV TF_VERSION=0.13.5 \
+ENV TF_VERSION=0.13.6 \
     TF_IN_AUTOMATION=true \
     TF_WARN_OUTPUT_ERRORS=1 \
     TF_INPUT=0
@@ -35,8 +35,7 @@ RUN set -x \
     && /aws/install -i /usr/local/aws-cli -b /usr/local/bin \
     && rm awscliv2.zip \
 ### Install addons :: terraform-module-versions
-    # && curl -L "$(curl -s https://api.github.com/repos/keilerkonzept/terraform-module-versions/releases/latest | grep -o -E "https://.+?_linux_x86_64.tar.gz")" > terraform-module-versions.tar.gz \
-    && curl -L "$(curl -s https://api.github.com/repos/dawidmalina/terraform-module-versions/releases/latest | grep -o -E "https://.+?_linux_x86_64.tar.gz")" > terraform-module-versions.tar.gz \
+    && curl -L "$(curl -s https://api.github.com/repos/keilerkonzept/terraform-module-versions/releases/latest | grep -o -E "https://.+?_linux_x86_64.tar.gz")" > terraform-module-versions.tar.gz \
     && tar xvf terraform-module-versions.tar.gz \
     && mv terraform-module-versions /usr/bin/ \
     && rm terraform-module-versions.tar.gz \
