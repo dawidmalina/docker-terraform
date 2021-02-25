@@ -1,6 +1,7 @@
 FROM debian:buster-slim
 
-ENV TF_VERSION=0.14.4 \
+ENV TF_VERSION=0.14.7 \
+    PACKER_VERSION=1.6.6 \
     TF_IN_AUTOMATION=true \
     TF_WARN_OUTPUT_ERRORS=1 \
     TF_INPUT=0
@@ -8,14 +9,19 @@ ENV TF_VERSION=0.14.4 \
 RUN set -x \
 ### Install basic tools
     && apt-get update \
-    && apt-get install --no-install-recommends --yes bash curl unzip git-core jq openssh-client python3-pip python3-setuptools bc \
+    && apt-get install --no-install-recommends --yes bash curl unzip git-core jq openssh-client python3-pip python3-setuptools bc ldap-utils \
 ### Install terraform
     && curl -LO https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip \
     && unzip terraform_${TF_VERSION}_linux_amd64.zip \
     && mv terraform /usr/bin/ \
     && rm terraform_${TF_VERSION}_linux_amd64.zip \
+### Install packer
+    && curl -LO https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip \
+    && unzip packer_${PACKER_VERSION}_linux_amd64.zip \
+    && mv packer /usr/bin/ \
+    && rm packer_${PACKER_VERSION}_linux_amd64.zip \
 ### Install addons :: terraform-docs
-    && curl -L "$(curl -s https://api.github.com/repos/terraform-docs/terraform-docs/releases/latest | grep -o -E "https://.+?-linux-amd64")" > terraform-docs \
+    && curl -L "$(curl -s https://api.github.com/repos/terraform-docs/terraform-docs/releases/latest | grep -o -E "https://.+?-linux-amd64" | uniq)" > terraform-docs \
     && chmod +x terraform-docs \
     && mv terraform-docs /usr/bin/ \
 ### Install addons :: tflint
