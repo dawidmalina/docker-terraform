@@ -1,6 +1,6 @@
 FROM debian:buster-slim
 
-ENV TF_VERSION=0.14.7 \
+ENV TF_VERSION=0.14.11 \
     PACKER_VERSION=1.6.6 \
     TF_IN_AUTOMATION=true \
     TF_WARN_OUTPUT_ERRORS=1 \
