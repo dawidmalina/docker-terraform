@@ -15,9 +15,11 @@ RUN set -x \
     && mv terraform /usr/bin/ \
     && rm terraform_${TF_VERSION}_linux_amd64.zip \
 ### Install addons :: terraform-docs
-    && curl -L "$(curl -s https://api.github.com/repos/terraform-docs/terraform-docs/releases/latest | grep -o -E "https://.+?-linux-amd64" | uniq)" > terraform-docs \
+    && curl -L "$(curl -s https://api.github.com/repos/terraform-docs/terraform-docs/releases/latest | grep -o -E "https://.+?-linux-amd64.tar.gz" | uniq)" > terraform-docs.tar.gz \
+    && tar xvf terraform-docs.tar.gz \
     && chmod +x terraform-docs \
     && mv terraform-docs /usr/bin/ \
+    && rm terraform-docs.tar.gz LICENSE README.md \
 ### Install addons :: tflint
     && curl -L "$(curl -s https://api.github.com/repos/terraform-linters/tflint/releases/latest | grep -o -E "https://.+?_linux_amd64.zip")" > tflint.zip \
     && unzip tflint.zip \
