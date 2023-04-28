@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM debian:11.3
 
 ENV TF_VERSION=1.0.2 \
     TF_IN_AUTOMATION=true \
