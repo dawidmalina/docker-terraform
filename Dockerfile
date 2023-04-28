@@ -1,4 +1,4 @@
-FROM debian:11.3
+FROM debian:11.6
 
 ENV TF_VERSION=1.0.2 \
     TF_IN_AUTOMATION=true \
