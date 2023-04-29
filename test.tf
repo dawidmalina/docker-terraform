@@ -1,3 +1,7 @@
+terraform {
+  required_version = ">= 1.0"
+}
+
 module "project-factory" {
   source  = "terraform-google-modules/project-factory/google"
   version = "~> 13.2"
