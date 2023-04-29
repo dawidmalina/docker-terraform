@@ -1,5 +1,6 @@
 FROM debian:11.6
 
+# renovate: datasource=github-releases depName=hashicorp/terraform extractVersion=^v(?<version>.*)$
 ENV TF_VERSION=1.0.2 \
     TF_IN_AUTOMATION=true \
     TF_WARN_OUTPUT_ERRORS=1 \
