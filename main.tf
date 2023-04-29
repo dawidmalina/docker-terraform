@@ -5,6 +5,7 @@ terraform {
 module "project-factory" {
   source  = "terraform-google-modules/project-factory/google"
   version = "13.2"
+
   random_project_id       = true
   name                    = "simple-sample-project"
   org_id                  = var.organization_id
