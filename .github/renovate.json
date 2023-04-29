@@ -15,5 +15,17 @@
         "#\\srenovate:\\sdatasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?( extractVersion=(?<extractVersion>.*?))?\\s(ENV|ARG) .*?_VERSION=(?<currentValue>.*)\\s"
       ]
     }
-  ]
+  ],
+  "packageRules": [
+      {
+        "matchManagers": ["github-actions"],
+        "semanticCommitScope": "ci",
+        "semanticCommitType": "chore"
+      },
+      {
+        "matchManagers": ["terraform"],
+        "semanticCommitScope": "module",
+        "semanticCommitType": "feat"
+      }
+    ] 
 }
