@@ -1,10 +1,10 @@
 FROM debian:11.5
 
 # renovate: datasource=github-releases depName=hashicorp/terraform extractVersion=^v(?<version>.*)$
-ENV TF_VERSION=1.0.2 \
-    TF_IN_AUTOMATION=true \
-    TF_WARN_OUTPUT_ERRORS=1 \
-    TF_INPUT=0
+ENV TF_VERSION=1.0.2
+ENV TF_IN_AUTOMATION=true
+ENV TF_WARN_OUTPUT_ERRORS=1
+ENV TF_INPUT=0
 
 RUN set -x \
 ### Install basic tools
