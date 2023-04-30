@@ -1,6 +1,6 @@
 module "project-factory" {
   source  = "terraform-google-modules/project-factory/google"
-  version = "~> 13.2"
+  version = "13.1.0"
 
   name                 = "pf-test-1"
   random_project_id    = true
