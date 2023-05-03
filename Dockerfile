@@ -1,4 +1,4 @@
-FROM debian:11.6
+FROM debian:11.7
 
 # renovate: datasource=github-releases depName=hashicorp/terraform extractVersion=^v(?<version>.*)$
 ENV TF_VERSION=1.4.6
