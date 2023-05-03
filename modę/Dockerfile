@@ -1,1 +1,1 @@
-FROM node:18.16.0-slim
+FROM node:18.16.0-slim@sha256:541ff4351701f8aa5eaff7ee569280d8dbf93c86992a8b73e8f622e3163101dd
