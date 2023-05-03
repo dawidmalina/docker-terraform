@@ -2,7 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base",
-    ":semanticCommits"
+    ":semanticCommits",
+    "docker:pinDigests"
   ],
   "prHourlyLimit": 3,
   "regexManagers": [
