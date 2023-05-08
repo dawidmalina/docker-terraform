@@ -6,10 +6,21 @@ on:
     types:
       - published
 jobs:
-  trigger:
+  trigger-release:
+    if: "!github.event.release.prerelease"
     name: Trigger build for a release
     runs-on: ubuntu-latest
     steps:
       - run: |
           echo "https://jenkins.vizlib.ninja/job/astrato/job/docker/job/build_astrato_images/buildWithParameters?TAG=${{ github.ref_name }}"
           echo "https://jenkins.vizlib.ninja/job/astrato/job/docker/job/build_astrato_images/buildWithParameters?TAG=${{ github.sha }}"
+  trigger-prerelease:
+    if: "github.event.release.prerelease"
+    name: Trigger build for a prerelease
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "https://jenkins.vizlib.ninja/job/astrato/job/docker/job/build_astrato_images/buildWithParameters?TAG=${{ github.ref_name }}"
+          echo "https://jenkins.vizlib.ninja/job/astrato/job/docker/job/build_astrato_images/buildWithParameters?TAG=${{ github.sha }}"
+
+
