@@ -2,7 +2,9 @@
 name: trigger build-test-deploy on jenkins for a release tag
 on:
   release:
-    types: [published, prereleased, released]
+    # to run when stable and pre-releases publish - subscribe to published instead of released and prereleased
+    types:
+      - published
 jobs:
   trigger:
     name: Trigger build for a release
@@ -11,4 +13,3 @@ jobs:
       - run: |
           echo "https://jenkins.vizlib.ninja/job/astrato/job/docker/job/build_astrato_images/buildWithParameters?TAG=${{ github.ref_name }}"
           echo "https://jenkins.vizlib.ninja/job/astrato/job/docker/job/build_astrato_images/buildWithParameters?TAG=${{ github.sha }}"
-          echo "${{ github.event }}"
