@@ -1,0 +1,15 @@
+---
+name: trigger build-test-deploy on jenkins
+on:
+  push:
+    branches:
+      - main
+      - 'hotfix/**'
+jobs:
+  trigger:
+    name: Trigger build
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "https://jenkins.vizlib.ninja/job/astrato/job/docker/job/build_astrato_images/buildWithParameters?TAG=${{ github.ref_name }}"
+          echo "https://jenkins.vizlib.ninja/job/astrato/job/docker/job/build_astrato_images/buildWithParameters?TAG=${{ github.sha }}"
