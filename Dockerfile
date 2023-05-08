@@ -6,6 +6,7 @@ ENV TF_IN_AUTOMATION=true
 ENV TF_WARN_OUTPUT_ERRORS=1
 ENV TF_INPUT=0
 
+
 RUN set -x \
 ### Install basic tools
     && apt-get update \
