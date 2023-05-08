@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - 'hotfix/**'
+      - master # only here
 jobs:
   trigger:
     name: Trigger build
