@@ -19,4 +19,3 @@ module "project-factory" {
     ]
   }]
 }
-
