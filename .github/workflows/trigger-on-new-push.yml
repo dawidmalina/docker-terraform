@@ -13,8 +13,8 @@ jobs:
     steps:
       - run: |
           BRANCH=${{ github.ref_name }}
-          if [[ "${BRANCH}" == "main" ]]; then
-              BRANCH="origin/main"
+          if [[ "${BRANCH}" == "master" ]]; then
+              BRANCH="origin/master"
           fi
           echo "https://jenkins.vizlib.ninja/job/astrato/job/docker/job/build_astrato_images/buildWithParameters?TAG=${BRANCH}"
           echo "https://jenkins.vizlib.ninja/job/astrato/job/docker/job/build_astrato_images/buildWithParameters?TAG=${{ github.sha }}"
