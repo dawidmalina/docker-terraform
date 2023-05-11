@@ -9,7 +9,7 @@ ENV TF_INPUT=0
 # renovate: datasource=github-releases depName=microsoft/msphpsql
 ENV PHP_SQLSRV_VERSION=5.10.0
 
-# renovate: datasource=github-tags depName=openresty/headers-more-nginx-module
+# renovate: datasource=github-tags depName=openresty/headers-more-nginx-module versioning=conan
 ARG HEADERS_MORE_VERSION=0.34
 
 # renovate: datasource=github-releases depName=sonarsource/sonar-scanner-cli versioning=maven
