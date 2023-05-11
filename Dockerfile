@@ -9,6 +9,12 @@ ENV TF_INPUT=0
 # renovate: datasource=github-releases depName=microsoft/msphpsql
 ENV PHP_SQLSRV_VERSION=5.10.0
 
+# renovate: datasource=github-tags depName=openresty/headers-more-nginx-module
+ARG HEADERS_MORE_VERSION=0.34
+
+# renovate: datasource=github-releases depName=sonarsource/sonar-scanner-cli
+ARG SONAR_VERSION=4.7.0.2747
+
 RUN set -x \
 ### Install basic tools
     && apt-get update \
