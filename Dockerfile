@@ -7,7 +7,7 @@ ENV TF_WARN_OUTPUT_ERRORS=1
 ENV TF_INPUT=0
 
 # renovate: datasource=github-releases depName=microsoft/msphpsql
-ENV PHP_SQLSRV_VERSION=5.10.0
+ENV PHP_SQLSRV_VERSION=v5.11.0
 
 # renovate: datasource=github-tags depName=openresty/headers-more-nginx-module versioning=conan
 ARG HEADERS_MORE_VERSION=0.34
