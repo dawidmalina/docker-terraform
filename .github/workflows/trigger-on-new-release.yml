@@ -24,3 +24,12 @@ jobs:
           echo "https://jenkins.vizlib.ninja/job/astrato/job/docker/job/build_astrato_images/buildWithParameters?TAG=${{ github.sha }}"
 
 
+      # Security scan terraform code
+      - name: Terraform Security
+        if: github.event.pull_request.merged != true && github.event.pull_request.state != 'closed' || failure()
+        id: security
+        uses: bridgecrewio/checkov-action@v12.2338.0
+        with:
+          directory: ${{ matrix.dir }}
+          soft_fail: false
+          download_external_modules: true
