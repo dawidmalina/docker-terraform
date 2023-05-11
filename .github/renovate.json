@@ -7,5 +7,5 @@
     "regexManagers:dockerfileVersions",
     "regexManagers:githubActionsVersions"
   ],
-  "prHourlyLimit": 3
+  "prHourlyLimit": 30
 }
