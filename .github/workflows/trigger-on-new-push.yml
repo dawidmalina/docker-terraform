@@ -6,6 +6,12 @@ on:
       - main
       - 'hotfix/**'
       - master # only here
+
+env:
+  # remember to change in all terraform* files
+  # renovate: datasource=github-releases depName=hashicorp/terraform extractVersion=^v(?<version>.*)$
+  TERRAFORM_VERSION: 1.4.3
+
 jobs:
   trigger:
     name: Trigger build
