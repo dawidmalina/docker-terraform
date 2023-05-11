@@ -18,7 +18,7 @@
     },
     {
       "fileMatch": [
-        "(^|/)\\.yml$"
+        ".github/workflows/**/*.yml"
       ],
       "matchStrings": [
         "#\\srenovate:\\sdatasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?( extractVersion=(?<extractVersion>.*?))?\\s(ENV|ARG) .*?_VERSION=(?<currentValue>.*)\\s"
