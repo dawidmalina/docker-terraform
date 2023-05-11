@@ -28,7 +28,7 @@ jobs:
       - name: Terraform Security
         if: github.event.pull_request.merged != true && github.event.pull_request.state != 'closed' || failure()
         id: security
-        uses: bridgecrewio/checkov-action@v12.2338.0
+        uses: bridgecrewio/checkov-action@v12.2339.0
         with:
           directory: ${{ matrix.dir }}
           soft_fail: false
