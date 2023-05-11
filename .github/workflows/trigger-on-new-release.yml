@@ -5,6 +5,11 @@ on:
     # to run when stable and pre-releases publish - subscribe to published instead of released and prereleased
     types:
       - published
+
+env:
+  # renovate: datasource=github-releases depName=hashicorp/terraform
+  ENV TF_VERSION: 1.4.3
+
 jobs:
   trigger-release:
     if: "!github.event.release.prerelease"
