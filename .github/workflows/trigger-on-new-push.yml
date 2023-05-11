@@ -9,7 +9,7 @@ on:
 
 env:
   # remember to change in all terraform* files
-  # renovate: datasource=github-releases depName=hashicorp/terraform extractVersion=^v(?<version>.*)$
+  # renovate: datasource=github-releases depName=hashicorp/terraform
   TERRAFORM_VERSION: 1.4.3
 
 jobs:
