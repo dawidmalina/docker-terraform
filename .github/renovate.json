@@ -4,7 +4,8 @@
     "config:base",
     ":semanticCommits",
     "docker:pinDigests",
-    "regexManagers:dockerfileVersions"
+    "regexManagers:dockerfileVersions",
+    "regexManagers:githubActionsVersions"
   ],
   "prHourlyLimit": 3
 }
