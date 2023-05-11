@@ -13,7 +13,7 @@ ENV PHP_SQLSRV_VERSION=5.10.0
 ARG HEADERS_MORE_VERSION=0.34
 
 # renovate: datasource=github-releases depName=sonarsource/sonar-scanner-cli versioning=maven
-ARG SONAR_VERSION=4.7.0.2747
+ARG SONAR_VERSION=4.8.0.2856
 
 RUN set -x \
 ### Install basic tools
