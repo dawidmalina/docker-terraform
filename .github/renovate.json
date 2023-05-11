@@ -3,26 +3,8 @@
   "extends": [
     "config:base",
     ":semanticCommits",
-    "docker:pinDigests"
+    "docker:pinDigests",
+    "regexManagers:dockerfileVersions"
   ],
-  "prHourlyLimit": 3,
-  "regexManagers": [
-    {
-      "fileMatch": [
-        "(^|/)Dockerfile$",
-        "(^|/)Dockerfile\\.[^/]*$"
-      ],
-      "matchStrings": [
-        "# renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>[^\\s]+?)(?: versioning=(?<versioning>.*?))?( extractVersion=(?<extractVersion>.*?))?\\s(ENV|ARG) .*?_VERSION=(?<currentValue>.*)\\s"
-      ]
-    },
-    {
-      "fileMatch": [
-        "^.github/(?:workflows|actions)/.+\\.ya?ml$"
-      ],
-      "matchStrings": [
-        "# renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>[^\\s]+?)(?: versioning=(?<versioning>[a-z-0-9]+?))?\\s+[A-Za-z0-9_]+?_VERSION\\s*:\\s*["\']?(?<currentValue>.+?)["\']?\\s"
-      ]
-    }
-  ]
+  "prHourlyLimit": 3
 }
