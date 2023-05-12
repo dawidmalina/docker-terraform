@@ -16,7 +16,7 @@ ARG HEADERS_MORE_VERSION=0.34
 ARG SONAR_VERSION=4.8.0.2856
 
 # renovate: datasource=github-releases depName=nats-io/natscli extractVersion=^v(?<version>.*)$
-ARG NATSCLI_VERSION=0.0.33
+ARG NATSCLI_VERSION=0.0.35
 
 RUN set -x \
 ### Install basic tools
