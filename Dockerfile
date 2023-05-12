@@ -15,6 +15,9 @@ ARG HEADERS_MORE_VERSION=0.34
 # renovate: datasource=github-releases depName=sonarsource/sonar-scanner-cli versioning=maven
 ARG SONAR_VERSION=4.8.0.2856
 
+# renovate: datasource=github-releases depName=nats-io/natscli extractVersion=^v(?<version>.*)$
+ARG NATSCLI_VERSION=0.0.33
+
 RUN set -x \
 ### Install basic tools
     && apt-get update \
