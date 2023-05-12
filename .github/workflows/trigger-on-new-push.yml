@@ -10,7 +10,7 @@ on:
 env:
   # remember to change in all terraform* files
   # renovate: datasource=github-releases depName=hashicorp/terraform versioning=semver
-  TERRAFORM_VERSION: 1.4.3
+  TERRAFORM_VERSION: v1.4.6
 
 jobs:
   trigger:
