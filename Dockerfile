@@ -1,7 +1,7 @@
 FROM debian:11.7@sha256:63d62ae233b588d6b426b7b072d79d1306bfd02a72bff1fc045b8511cc89ee09
 
 # renovate: datasource=github-releases depName=hashicorp/terraform
-ENV TF_VERSION=1.4.6
+ENV TF_VERSION=v1.5.1
 ENV TF_IN_AUTOMATION=true
 ENV TF_WARN_OUTPUT_ERRORS=1
 ENV TF_INPUT=0
